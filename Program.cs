@@ -1,35 +1,19 @@
-﻿//Задайте произвольный массив. Выведете его элементы, начиная с конца. Использовать рекурсию, не использовать циклы./
-int[] GenerateArray(int size, int leftRange, int rightRange){
-    int[] array = new int[size];
-    Random rand = new Random();
-    for(int i = 0; i<size; i++){
-        array[i] = rand.Next(leftRange, rightRange+1);
-    }
-    return array;
+﻿
+ //Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N. Использовать рекурcию.
+ 
+ void PrintNaturalNumbers(int n, int m){
+    if(n > m){
+        return;
     }
 
-
-void PrintArray(int[]arrayForPrint){
-   for(int i = 0; i<arrayForPrint.Length; i++)
-        Console.Write(arrayForPrint[i]+" ");  
-}
-
-int Mussiv(int[]myArray, int i){
-    
-int Lengt = myArray.Length;
-        if(i<Lengt/2){
-
-        int temp = myArray[i];
-        myArray[i]= myArray[(Lengt - 1)-i];
-        myArray[(Lengt - 1) - i] = temp;
-        i++;
-        Mussiv(myArray, i);
-        }
-        return myArray[i];
-}   
-
-int[] myArray = GenerateArray(10, 1, 100);
-PrintArray(myArray);
-Console.Write($"Массив:{Mussiv(myArray)}");
-
-
+  else{
+    Console.Write(n+" ");  
+    n++;
+    PrintNaturalNumbers(n,m);
+ }
+ }
+ Console.WriteLine("Введите число n");
+ int n = Convert.ToInt32(Console.ReadLine());
+ Console.WriteLine("Введите число m");
+ int m = Convert.ToInt32(Console.ReadLine());
+ PrintNaturalNumbers(n,m);
